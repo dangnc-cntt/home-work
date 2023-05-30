@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tính toán phòng trực nhật</title>
+  <style>
+      html, body {
+          height: 100%;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          scroll-behavior: smooth;
+          --height-header: 46px;
+          font-family: Helvetical, Arial, sans-serif;
+      }
+
+      .centered-text {
+          text-align: center;
+          font-size: 24px;
+      }
+
+
+      #result {
+          padding: 400px 200px;
+          background: #4da1f7;
+          border: solid 5px;
+          color: #f6c687;
+          border-radius: 76px;
+          font-size: 50px;
+          font-weight: 550;
+      }
+
+  </style>
+</head>
+<body>
+<div class="centered-text">
+  <p id="result"></p>
+</div>
+
+<script>
+    function calculateCurrentRooms() {
+
+        // Khai báo danh sách các phần tử
+        var list = ['Tầng 2', 'Tầng 3', 'Tầng 4'];
+
+// Lấy ngày hiện tại
+        var currentDate = new Date('2023-06-19');
+
+// Tính toán số tuần chênh lệch từ ngày bắt đầu
+        var startDate = new Date('2023-05-29');
+        var timeDiff = currentDate.getTime() - startDate.getTime();
+        var diffWeeks = Math.floor(timeDiff / (1000 * 3600 * 24 * 7));
+
+        // Lấy phần tử tương ứng với tuần
+        var currentElement = list[diffWeeks % list.length];
+
+        // In ra phần tử tương ứng
+        document.getElementById("result").innerHTML = currentElement;
+
+        // console.log(currentElement);
+        //
+        // var list = [2, 3, 4];
+        // var startDate = new Date('2023-06-20');
+        // var today = new Date();
+        // // Lấy số tuần trong năm hiện tại
+        // // var today = new Date();
+        // // var startOfYear = new Date(today.getFullYear(), 0, 0);
+        // var diff = (today - startDate) + ((startDate.getTimezoneOffset() - today.getTimezoneOffset()) * 60 * 1000);
+        // var oneWeek = 1000 * 60 * 60 * 24 * 7;
+        // var currentWeek = Math.floor(diff / oneWeek);
+        //
+        // // Tính toán phòng trực nhật
+        // var currentRoom = (currentWeek + 1) % 3;
+        //
+        // alert(currentRoom)
+        // // Hiển thị kết quả
+        // document.getElementById("result").innerHTML = "Tuần hiện tại phòng trực nhật là: Phòng " + (list[currentRoom + 1]);
+    }
+
+    // function calculateCurrentRoom() {
+    //     var startDate = new Date('2023-05-30');
+    //     var today = new Date();
+    //
+    //     // Tính toán số tuần chênh lệch
+    //     var timeDiff = today.getTime() - startDate.getTime();
+    //     var diffWeeks = Math.ceil(timeDiff / (1000 * 3600 * 24 * 7));
+    //     var list = [2, 3, 4];
+    //
+    //     alert(list[diffWeeks])
+    //     var startOfYear = new Date(today.getFullYear(), 0, 0);
+    //     var diff = (today - startOfYear) + ((startOfYear.getTimezoneOffset() - today.getTimezoneOffset()) * 60 * 1000);
+    //     var oneWeek = 1000 * 60 * 60 * 24 * 7;
+    //     var currentWeek = Math.floor(diff / oneWeek);
+    //
+    //     // Tính toán phòng trực nhật
+    //     var currentRoom = (currentWeek + 1) % 3;
+    //
+    //     // Hiển thị kết quả
+    //     document.getElementById("result").innerHTML = "Tuần hiện tại phòng trực nhật là: Phòng " + (currentRoom + 1);
+    // }
+
+    // Gọi hàm tính toán khi trang được tải
+    calculateCurrentRooms();
+</script>
+</body>
+</html>
